@@ -1,0 +1,233 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fffaf4;
+  --background-soft: #fff3ea;
+  --card: rgba(255, 255, 255, 0.78);
+  --card-strong: rgba(255, 255, 255, 0.94);
+  --foreground: #3a2a2d;
+  --muted: #7f6a6e;
+  --line: rgba(147, 104, 104, 0.14);
+  --line-strong: rgba(147, 104, 104, 0.22);
+  --rose: #f29cb6;
+  --rose-deep: #d96b8d;
+  --butter: #f7c769;
+  --mint: #a7ddc1;
+  --sky: #a8c1ff;
+  --shadow: 0 18px 50px rgba(149, 111, 96, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-soft: var(--background-soft);
+  --color-card: var(--card);
+  --color-card-strong: var(--card-strong);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-rose: var(--rose);
+  --color-rose-deep: var(--rose-deep);
+  --color-butter: var(--butter);
+  --color-mint: var(--mint);
+  --color-sky: var(--sky);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background:
+    radial-gradient(circle at top left, rgba(255, 196, 214, 0.45), transparent 36%),
+    radial-gradient(circle at top right, rgba(255, 224, 167, 0.34), transparent 30%),
+    linear-gradient(180deg, #fffaf5 0%, #fff4ed 100%);
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255, 213, 220, 0.42), transparent 24%),
+    radial-gradient(circle at 90% 0%, rgba(255, 226, 175, 0.32), transparent 22%),
+    linear-gradient(180deg, #fffaf5 0%, #fff4ed 100%);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(242, 156, 182, 0.28);
+}
+
+.soft-panel {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 251, 246, 0.78));
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.section-title {
+  font-family: var(--font-serif), serif;
+  letter-spacing: -0.03em;
+}
+
+.gradient-border {
+  position: relative;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 249, 243, 0.78)) padding-box,
+    linear-gradient(135deg, rgba(242, 156, 182, 0.5), rgba(247, 199, 105, 0.4), rgba(167, 221, 193, 0.45)) border-box;
+}
+
+.rich-content {
+  color: var(--foreground);
+  font-size: 0.97rem;
+  line-height: 1.75;
+}
+
+.rich-content p,
+.rich-content ul,
+.rich-content ol,
+.rich-content table,
+.rich-content pre,
+.rich-content blockquote {
+  margin: 0.8rem 0;
+}
+
+.rich-content pre {
+  overflow-x: auto;
+  border-radius: 1rem;
+  background: #2f2227;
+  color: #fff2ea;
+  padding: 1rem;
+}
+
+.rich-content code {
+  border-radius: 0.45rem;
+  background: rgba(140, 103, 114, 0.1);
+  padding: 0.15rem 0.35rem;
+  font-size: 0.9em;
+}
+
+.rich-content pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.rich-content blockquote {
+  border-left: 3px solid rgba(242, 156, 182, 0.8);
+  padding-left: 1rem;
+  color: #6e5960;
+}
+
+.rich-content table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid rgba(147, 104, 104, 0.16);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.rich-content th,
+.rich-content td {
+  border: 1px solid rgba(147, 104, 104, 0.12);
+  padding: 0.7rem 0.8rem;
+  text-align: left;
+}
+
+.rich-content th {
+  background: rgba(242, 156, 182, 0.12);
+}
+
+.rich-content img {
+  width: 100%;
+  max-height: 22rem;
+  object-fit: cover;
+  border-radius: 1rem;
+  border: 1px solid rgba(147, 104, 104, 0.12);
+}
+
+.editor-shell {
+  border-radius: 1.4rem;
+  border: 1px solid rgba(147, 104, 104, 0.14);
+  background: rgba(255, 255, 255, 0.84);
+  overflow: hidden;
+}
+
+.editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 0.8rem;
+  border-bottom: 1px solid rgba(147, 104, 104, 0.12);
+  background: rgba(255, 246, 241, 0.84);
+}
+
+.editor-toolbar button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2rem;
+  min-width: 2.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(147, 104, 104, 0.12);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--foreground);
+  transition: 160ms ease;
+}
+
+.editor-toolbar button:hover,
+.editor-toolbar button[data-active="true"] {
+  border-color: rgba(242, 156, 182, 0.46);
+  background: rgba(255, 227, 235, 0.95);
+}
+
+.ProseMirror {
+  min-height: 12rem;
+  padding: 1rem 1.1rem 1.2rem;
+  outline: none;
+  color: var(--foreground);
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  color: rgba(127, 106, 110, 0.9);
+  pointer-events: none;
+}
+
+.ProseMirror img {
+  border-radius: 1rem;
+}
+
+.ProseMirror table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  overflow: hidden;
+}
+
+.ProseMirror td,
+.ProseMirror th {
+  border: 1px solid rgba(147, 104, 104, 0.16);
+  padding: 0.65rem;
+  vertical-align: top;
+}
+
+.ProseMirror th {
+  background: rgba(242, 156, 182, 0.14);
+}
+
+.ProseMirror-selectednode {
+  outline: 2px solid rgba(242, 156, 182, 0.55);
+}
